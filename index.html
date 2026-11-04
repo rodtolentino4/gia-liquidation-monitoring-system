@@ -1000,6 +1000,7 @@ function tableHTML(arr,beneficiaryPage=true){
  ${beneficiaryPage?`
 
 <button class="btn secondary" onclick="editBeneficiary('${b.id}')">Edit Record</button>
+<button class="btn" style="background:#c62828;color:#fff;border:1px solid #b71c1c" onclick="deleteBeneficiary('${b.id}')">Delete</button>
 
 `:''}</div></td></tr>`}).join('')+'</tbody></table></div>';
 
@@ -1193,7 +1194,7 @@ async function saveBeneficiary(id){
 }
 }
 function editBeneficiary(id){openBeneficiary(db.beneficiaries.find(b=>b.id===id))}
-async function deleteBeneficiary(id){let b=db.beneficiaries.find(x=>x.id===id);if(!b)return;if(confirm('Delete this beneficiary and its ledger?')){if(!firebaseReady||!firestore){alert('Firebase is not connected. The beneficiary was not deleted.');return;}try{await firestore.collection(FIRESTORE_COLLECTION).doc(id).delete();db.beneficiaries=db.beneficiaries.filter(x=>x.id!==id);refreshAll();}catch(e){alert('Unable to delete this beneficiary from Firebase.\n\n'+(e.message||e))}}}
+async function deleteBeneficiary(id){let b=db.beneficiaries.find(x=>x.id===id);if(!b)return;if(confirm('ARE YOU SURE YOU WANT TO DELETE DIS BENEFICIARY?')){if(!firebaseReady||!firestore){alert('Firebase is not connected. The beneficiary was not deleted.');return;}try{await firestore.collection(FIRESTORE_COLLECTION).doc(id).delete();db.beneficiaries=db.beneficiaries.filter(x=>x.id!==id);refreshAll();}catch(e){alert('Unable to delete this beneficiary from Firebase.\n\n'+(e.message||e))}}}
 function openDeveloperModal(){
   modalBox.classList.add('developer-modalbox');
   modalBox.innerHTML=`<div class="developer-modal">
