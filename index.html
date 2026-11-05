@@ -1852,7 +1852,7 @@ function openReportPrintModal(){
  reportAsOfQuarter=Math.floor(today.getMonth()/3)+1;
  reportAsOfChoice='15';
  const quarterInfo=getReportQuarterInfo();
- const initialDateLabel=reportAsOfQuarter===1?'MARCH 15':reportAsOfQuarter===2?'JUNE 15':reportAsOfQuarter===3?'SEPTEMBER 15':'DECEMBER 15';
+ const initialDateLabel=reportAsOfQuarter===1?'March 15':reportAsOfQuarter===2?'June 15':reportAsOfQuarter===3?'September 15':'December 15';
  const dateOptions=reportAsOfQuarter===4
    ? `<option value="15">As of December 15, ${reportAsOfYear}</option><option value="31">As of December 31, ${reportAsOfYear}</option>`
    : `<option value="15">As of ${initialDateLabel}, ${reportAsOfYear}</option>`;
