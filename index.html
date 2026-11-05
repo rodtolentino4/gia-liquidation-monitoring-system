@@ -1679,12 +1679,12 @@ function updateReportPeriod(){
  if(dateSelect){
    if(reportAsOfQuarter===4){
      dateSelect.disabled=false;
-     dateSelect.innerHTML=`<option value="15">AS OF DECEMBER 15, ${reportAsOfYear}</option><option value="31">AS OF DECEMBER 31, ${reportAsOfYear}</option>`;
+     dateSelect.innerHTML=`<option value="15">As of December 15, ${reportAsOfYear}</option><option value="31">As of December 31, ${reportAsOfYear}</option>`;
      dateSelect.value=reportAsOfChoice;
    }else{
      const info=getReportQuarterInfo();
      const label=new Date(info.year,info.month,info.day).toLocaleDateString('en-PH',{month:'long',day:'numeric',year:'numeric'}).toUpperCase();
-     dateSelect.innerHTML=`<option value="15">AS OF ${label}</option>`;
+     dateSelect.innerHTML=`<option value="15">As of ${label}</option>`;
      dateSelect.value='15';
      dateSelect.disabled=true;
      reportAsOfChoice='15';
@@ -1755,7 +1755,7 @@ function reportPrintHTML(arr){
    <div style="text-align:center;line-height:1.18;margin-bottom:5px">
      <b style="font-size:12px">DEPARTMENT OF SCIENCE AND TECHNOLOGY REGION 02</b><br>
      <b>${esc(reportHeader)}</b><br>
-     <span>AS OF <b>${asOf}</b></span>
+     <span>As of <b>${asOf}</b></span>
    </div>
 
    <table style="width:100%;border-collapse:collapse;table-layout:fixed">
@@ -1854,8 +1854,8 @@ function openReportPrintModal(){
  const quarterInfo=getReportQuarterInfo();
  const initialDateLabel=reportAsOfQuarter===1?'MARCH 15':reportAsOfQuarter===2?'JUNE 15':reportAsOfQuarter===3?'SEPTEMBER 15':'DECEMBER 15';
  const dateOptions=reportAsOfQuarter===4
-   ? `<option value="15">AS OF DECEMBER 15, ${reportAsOfYear}</option><option value="31">AS OF DECEMBER 31, ${reportAsOfYear}</option>`
-   : `<option value="15">AS OF ${initialDateLabel}, ${reportAsOfYear}</option>`;
+   ? `<option value="15">As of December 15, ${reportAsOfYear}</option><option value="31">As of December 31, ${reportAsOfYear}</option>`
+   : `<option value="15">As of ${initialDateLabel}, ${reportAsOfYear}</option>`;
 
  if(!arr.length){
    alert('No unliquidated records for the selected GIA.');
