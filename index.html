@@ -2026,7 +2026,7 @@ function printDemandGroup(records,selectedDate,attentionTo='',position=''){
   const rows=records.map((x,i)=>{
     const xt=totals(x);
     return `<tr>
-      <td style="border:1px solid #111;padding:5px;text-align:center">${i+1}</td>
+      <td style="border:1px solid #111;padding:5px;text-align:center">${esc(x.checkNo||'')}</td>
       <td style="border:1px solid #111;padding:5px">${fmtDate(x.dateGranted)}</td>
       <td style="border:1px solid #111;padding:5px;text-align:right">${peso(x.amountGranted)}</td>
       <td style="border:1px solid #111;padding:5px">${esc(x.projectTitle||'')}</td>
@@ -2045,7 +2045,7 @@ function printDemandGroup(records,selectedDate,attentionTo='',position=''){
     ? `<p>We would like to reiterate our request for your good office to facilitate the submission of the audited financial report of this project. Please coordinate with our Accountant, <b>Ms. NANCY CORAZON GUIMMAYEN</b> through 09177776586 for any information you want to be clarified.</p>
        <p>We hope to received the reports on or before <b>${deadlineText}</b> so that the necessary recording can be made in our books.</p>`
     : `<p>We would like to reiterate our request for your good office to facilitate the submission of the documents as required per DOST Memorandum Circular No. 001</p>
-       <p>Please coordinate with our Accountant, <b>Ms. NANCY CORAZON GUIMMAYEN</b> through <b>0917-777-6586</b> for any information you want to be clarified.</p>
+       <p>Please coordinate with our Accountant, <b>Ms. NANCY C. GUIMMAYEN</b> through <b>0917-777-6586</b> for any information you want to be clarified.</p>
        <p>We hope to receive the above mentioned reports on or the refund of any unexpected balance on/or before <b>${deadlineText}</b> so that necessary recording can be made in our books for liquidation.</p>`;
 
   printArea.innerHTML=`<div class="demand-letter-sheet">
@@ -2106,7 +2106,7 @@ ${attentionTo?`
 
     <table style="width:100%;border-collapse:collapse;font-size:11px">
       <thead><tr>
-        <th style="border:1px solid #111;padding:5px">No.</th>
+        <th style="border:1px solid #111;padding:5px">Check No.</th>
         <th style="border:1px solid #111;padding:5px">Date Granted</th>
         <th style="border:1px solid #111;padding:5px">Amount Granted</th>
         <th style="border:1px solid #111;padding:5px">Project Title/Purpose</th>
